@@ -71,11 +71,17 @@ class HomeActivity : BaseActivity<HomeViewModel>(),RecyclerViewActionListener {
         })
     }
     override fun onItemClick(viewId: Int, position: Int, childPosition: Int?) {
-        TODO("Not yet implemented")
+        startActivity(
+            DetailsActivity.getStartIntent(
+                mContext = this,
+                title = mAdapter!!.getItem(position).title!!,
+                url = mAdapter!!.getItem(position).url!!
+            )
+        )
     }
 
     override fun onLoadMore(itemCount: Int, nextPage: Int) {
-        TODO("Not yet implemented")
+
     }
 
 

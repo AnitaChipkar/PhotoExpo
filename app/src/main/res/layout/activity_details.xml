@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
 
@@ -11,10 +12,42 @@
             name="viewModel"
             type="com.anitac.photoexpo.viewmodel.DetailsViewModel"/>
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.DetailsActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dimen_20dp">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:padding="@dimen/dimen_1dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@mipmap/ic_launcher_round" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvImageTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimen_4dp"
+                android:layout_marginStart="@dimen/dimen_8dp"
+                android:layout_below="@+id/ivImage"
+                android:fontFamily="@font/sf_pro_text_medium"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_16sp"
+                tools:text="Test" />
+            <!--<View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_below="@+id/ivThumbnail"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_marginBottom="@dimen/dimen_4dp"
+                android:background="@android:color/darker_gray" />
+
+-->
+        </RelativeLayout>
 </layout>

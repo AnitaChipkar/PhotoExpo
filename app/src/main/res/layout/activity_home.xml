@@ -16,7 +16,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.HomeActivity">
+    tools:context=".view.HomeActivity"
+    android:background="@color/gray">
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/spImageList"
         android:layout_width="match_parent"
