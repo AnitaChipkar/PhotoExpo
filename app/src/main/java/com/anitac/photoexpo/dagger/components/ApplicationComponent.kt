@@ -5,6 +5,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import com.anitac.photoexpo.AppApplication
+import com.anitac.photoexpo.api.NetworkHelper
+import com.anitac.photoexpo.api.NetworkService
 import com.app.loc.dagger.ApplicationContext
 import com.anitac.photoexpo.dagger.modules.ApplicationModule
 import com.app.loc.commonUtils.rx.SchedulerProvider
@@ -27,9 +29,9 @@ interface ApplicationComponent {
     @ApplicationContext
     fun getContext(): Context
 
-    // fun getNetworkService(): NetworkService
+     fun getNetworkService(): NetworkService
 
-    // fun getNetworkHelper(): NetworkHelper
+     fun getNetworkHelper(): NetworkHelper
 
      fun getSchedulerProvider(): SchedulerProvider
 

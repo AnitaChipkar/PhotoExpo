@@ -2,14 +2,18 @@ package com.anitac.photoexpo.view
 
 import android.app.Dialog
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.anitac.photoexpo.AppApplication
 import com.anitac.photoexpo.dagger.modules.ActivityModule
 import com.anitac.photoexpo.dagger.components.ActivityComponent
 import com.anitac.photoexpo.dagger.components.DaggerActivityComponent
+import com.anitac.photoexpo.databinding.DialogLoadingBinding
 import com.anitac.photoexpo.viewmodel.BaseViewModel
 import javax.inject.Inject
 
@@ -106,6 +110,63 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.i(this@BaseActivity::class.java.simpleName, "onDestroy: ")
+    }
+    /**
+     * @author Anita Chipkar
+     * @param isCheckNetwork
+     * @param isSetTitle
+     * @param title
+     */
+    fun showProgressDialog(
+        isCheckNetwork: Boolean = true,
+        isSetTitle: Boolean,
+        title: String
+    ) {
+        if (isCheckNetwork) {
+            if (isNetworkAvailable()) {
+                if (progressDialog == null) {
+                    progressDialog = Dialog(this)
+                    val binding: DialogLoadingBinding =
+                        DialogLoadingBinding.inflate(LayoutInflater.from(this))
+                    progressDialog?.setContentView(binding.root)
+                    progressDialog?.setCancelable(false)
+                    progressDialog?.window!!.setBackgroundDrawable(
+                        ColorDrawable(Color.TRANSPARENT)
+                    )
+
+                    when {
+                        isSetTitle -> binding.tvTitle.text = title
+                    }
+                }
+                progressDialog?.show()
+            }
+        } else {
+            if (progressDialog == null) {
+                progressDialog = Dialog(this)
+                val binding: DialogLoadingBinding =
+                    DialogLoadingBinding.inflate(LayoutInflater.from(this))
+                progressDialog?.setContentView(binding.root)
+                progressDialog?.setCancelable(false)
+                progressDialog?.window!!.setBackgroundDrawable(
+                    ColorDrawable(Color.TRANSPARENT)
+                )
+
+                when {
+                    isSetTitle -> binding.tvTitle.text = title
+                }
+            }
+            progressDialog?.show()
+        }
+    }
+
+    /**
+     * @author Anita Chipkar
+     */
+    fun hideProgressDialog() {
+        if (progressDialog != null && progressDialog!!.isShowing) {
+            progressDialog?.dismiss()
+            progressDialog = null
+        }
     }
 
 }

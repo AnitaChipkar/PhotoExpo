@@ -1,6 +1,7 @@
 package com.anitac.photoexpo.viewmodel
 
 
+import com.anitac.photoexpo.api.NetworkHelper
 import com.anitac.photoexpo.repository.DetailsRepository
 import com.app.loc.commonUtils.rx.SchedulerProvider
 import io.reactivex.disposables.CompositeDisposable
@@ -17,8 +18,9 @@ import io.reactivex.disposables.CompositeDisposable
 class DetailsViewModel(
     schedulerProvider: SchedulerProvider,
     compositeDisposable: CompositeDisposable,
+    networkHelper: NetworkHelper,
     private val detailsRepository: DetailsRepository
-) : BaseViewModel(schedulerProvider, compositeDisposable) {
+) : BaseViewModel(schedulerProvider, compositeDisposable,networkHelper) {
 
    /* val configParamsPhoneLiveData = MutableLiveData<TAListResponse<VersionConfigResponse>>()
     val checkForInternetConnectionLiveData = MutableLiveData<Boolean>()

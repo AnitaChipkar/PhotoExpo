@@ -2,6 +2,7 @@ package com.anitac.photoexpo.dagger.modules
 
 
 import androidx.lifecycle.ViewModelProviders
+import com.anitac.photoexpo.api.NetworkHelper
 import com.anitac.photoexpo.repository.DetailsRepository
 import com.anitac.photoexpo.repository.HomeRepository
 import com.anitac.photoexpo.repository.SplashRepository
@@ -28,7 +29,8 @@ class ActivityModule(private val activity: BaseActivity<*>) {
     fun provideSplashViewModel(
         schedulerProvider: SchedulerProvider,
         compositeDisposable: CompositeDisposable,
-        splashRepository: SplashRepository
+        networkHelper: NetworkHelper,
+        splashRepository: SplashRepository,
     ): SplashViewModel = ViewModelProviders.of(
         activity, ViewModelProviderFactory(
             SplashViewModel::
@@ -37,6 +39,7 @@ class ActivityModule(private val activity: BaseActivity<*>) {
             SplashViewModel(
                 schedulerProvider,
                 compositeDisposable,
+                networkHelper,
                 splashRepository
             )
         })[SplashViewModel::class.java]
@@ -45,6 +48,7 @@ class ActivityModule(private val activity: BaseActivity<*>) {
     fun provideHomeViewModel(
         schedulerProvider: SchedulerProvider,
         compositeDisposable: CompositeDisposable,
+        networkHelper: NetworkHelper,
         homeRepository: HomeRepository
     ): HomeViewModel = ViewModelProviders.of(
         activity, ViewModelProviderFactory(
@@ -54,6 +58,7 @@ class ActivityModule(private val activity: BaseActivity<*>) {
             HomeViewModel(
                 schedulerProvider,
                 compositeDisposable,
+                networkHelper,
                 homeRepository
             )
         })[HomeViewModel::class.java]
@@ -62,6 +67,7 @@ class ActivityModule(private val activity: BaseActivity<*>) {
     fun provideDetailsViewModel(
         schedulerProvider: SchedulerProvider,
         compositeDisposable: CompositeDisposable,
+        networkHelper: NetworkHelper,
         detailsRepository: DetailsRepository
     ): DetailsViewModel = ViewModelProviders.of(
         activity, ViewModelProviderFactory(
@@ -71,6 +77,7 @@ class ActivityModule(private val activity: BaseActivity<*>) {
             DetailsViewModel(
                 schedulerProvider,
                 compositeDisposable,
+                networkHelper,
                 detailsRepository
             )
         })[DetailsViewModel::class.java]

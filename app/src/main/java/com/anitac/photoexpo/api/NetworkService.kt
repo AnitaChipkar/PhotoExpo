@@ -1,5 +1,10 @@
 package com.anitac.photoexpo.api
 
+import com.anitac.photoexpo.ImageList
+import io.reactivex.Single
+import retrofit2.Response
+import retrofit2.http.GET
+import retrofit2.http.Query
 import javax.inject.Singleton
 
 /**
@@ -7,8 +12,8 @@ import javax.inject.Singleton
  */
 @Singleton
 interface NetworkService {
- /*   @GET("reasons_list")
-    fun callGetReportReason(
-        @Query("reason_type") reasonType: String
-    ): Single<TAListResponse<Reason>>*/
+
+    @GET("photos")
+    fun callImageList(
+    ): Single<ArrayList<ImageList>>
 }

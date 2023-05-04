@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import com.anitac.photoexpo.AppApplication
+import com.anitac.photoexpo.api.NetworkHelper
 import com.anitac.photoexpo.api.NetworkService
 import com.anitac.photoexpo.api.Networking
 import com.app.loc.commonUtils.rx.RxSchedulerProvider
@@ -45,14 +46,13 @@ class ApplicationModule(private val application: AppApplication) {
     fun provideNetworkService(): NetworkService =
         Networking.create(
             "",
-            "",
+            "https://jsonplaceholder.typicode.com/",
             application
         )
 
-   /* @Singleton
+    @Singleton
     @Provides
     fun provideNetworkHelper(): NetworkHelper = NetworkHelper(application)
-*/
     @Provides
     fun provideAlertDialogBuilder(): AlertDialog.Builder = AlertDialog.Builder(application)
 

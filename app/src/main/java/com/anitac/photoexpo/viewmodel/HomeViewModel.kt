@@ -1,9 +1,14 @@
 package com.anitac.photoexpo.viewmodel
 
 
+import android.util.Log
+import androidx.lifecycle.MutableLiveData
+import com.anitac.photoexpo.ImageList
+import com.anitac.photoexpo.api.NetworkHelper
 import com.anitac.photoexpo.repository.HomeRepository
 import com.app.loc.commonUtils.rx.SchedulerProvider
 import io.reactivex.disposables.CompositeDisposable
+import retrofit2.Response
 
 /**
  * @author Anita Chipkar
@@ -17,41 +22,42 @@ import io.reactivex.disposables.CompositeDisposable
 class HomeViewModel(
     schedulerProvider: SchedulerProvider,
     compositeDisposable: CompositeDisposable,
+    networkHelper: NetworkHelper,
     private val homeRepository: HomeRepository
-) : BaseViewModel(schedulerProvider, compositeDisposable) {
-
-   /* val configParamsPhoneLiveData = MutableLiveData<TAListResponse<VersionConfigResponse>>()
+) : BaseViewModel(schedulerProvider, compositeDisposable,networkHelper) {
     val checkForInternetConnectionLiveData = MutableLiveData<Boolean>()
-    var deviceToken : String = ""
-*/
+    var imageListLiveData = MutableLiveData<ArrayList<ImageList>>()
 
     override fun onCreate() {
-        //checkForInternetConnection()
-      //  deviceToken = AppineersApplication.sharedPreference.deviceToken ?: ""
+        checkForInternetConnection()
     }
 
-
-   /* private fun checkForInternetConnection() {
+    private fun checkForInternetConnection() {
         when {
             checkInternetConnection() -> checkForInternetConnectionLiveData.postValue(true)
             else -> checkForInternetConnectionLiveData.postValue(false)
         }
     }
-
-    fun callGetConfigParameters() {
+    /**
+     * @author Anita Chipkar
+     * @param userId
+     * @param pageIndex
+     */
+    fun callGetImageList() {
         compositeDisposable.addAll(
-            splashRepository.callConfigParameters()
+            homeRepository.callImageList()
                 .subscribeOn(schedulerProvider.io())
                 .subscribe(
                     { response ->
-                        configParamsPhoneLiveData.postValue(response)
+                        imageListLiveData.postValue(response)
                     },
                     { error ->
-                        statusCodeLiveData.postValue(handleServerError(error))
+                     Log.i("TAG",error.message.toString())
                     }
                 )
         )
-    }*/
+    }
+
 
 
 }
