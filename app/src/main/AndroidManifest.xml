@@ -30,7 +30,8 @@
             android:exported="false" />
         <activity
             android:name=".view.HomeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.PhotoExpo"/>
     </application>
 
 </manifest>
