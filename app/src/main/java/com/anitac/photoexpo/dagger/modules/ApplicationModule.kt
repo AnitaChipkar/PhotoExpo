@@ -10,7 +10,7 @@ import com.anitac.photoexpo.api.NetworkService
 import com.anitac.photoexpo.api.Networking
 import com.app.loc.commonUtils.rx.RxSchedulerProvider
 import com.app.loc.commonUtils.rx.SchedulerProvider
-import com.app.loc.dagger.ApplicationContext
+import com.anitac.photoexpo.dagger.ApplicationContext
 import dagger.Module
 import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable

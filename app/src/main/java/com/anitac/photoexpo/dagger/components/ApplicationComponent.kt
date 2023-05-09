@@ -7,7 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import com.anitac.photoexpo.AppApplication
 import com.anitac.photoexpo.api.NetworkHelper
 import com.anitac.photoexpo.api.NetworkService
-import com.app.loc.dagger.ApplicationContext
+import com.anitac.photoexpo.dagger.ApplicationContext
 import com.anitac.photoexpo.dagger.modules.ApplicationModule
 import com.app.loc.commonUtils.rx.SchedulerProvider
 import dagger.Component

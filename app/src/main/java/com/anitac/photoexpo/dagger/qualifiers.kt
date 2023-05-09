@@ -1,4 +1,4 @@
-package com.app.loc.dagger
+package com.anitac.photoexpo.dagger
 
 import javax.inject.Qualifier
 
