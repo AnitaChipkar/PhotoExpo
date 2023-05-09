@@ -17,17 +17,15 @@ import com.anitac.photoexpo.databinding.DialogLoadingBinding
 import com.anitac.photoexpo.viewmodel.BaseViewModel
 import javax.inject.Inject
 
+/**
+ * @author Anita Chipkar
+ */
 abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
 
     @Inject
     lateinit var viewModel: VM
     private var retryAttempt = 0.0
     private var progressDialog: Dialog? = null
-
-    /**
-     * @author Anita Chipkar
-     * @param savedInstanceState
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         injectDependencies(buildActivityComponent())
         super.onCreate(savedInstanceState)
@@ -36,22 +34,12 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
         setupView(savedInstanceState)
         viewModel.onCreate()
     }
-
-    /**
-     * @author Anita Chipkar
-     * @return
-     */
     private fun buildActivityComponent() =
         DaggerActivityComponent
             .builder()
             .applicationComponent((application as AppApplication).applicationComponent)
             .activityModule(ActivityModule(this))
             .build()
-
-    /**
-     * @author Anita Chipkar
-     * @return
-     */
     fun checkInternet(): Boolean {
         return when {
             isNetworkAvailable() -> true
@@ -61,22 +49,7 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
             }
         }
     }
-
-
-    /**
-     * @author Anita Chipkar
-     */
     protected open fun setupObservers() {
-        /*viewModel.messageString.observe(this, Observer {
-            it.data?.run {
-                hideProgressDialog()
-                showMessage(this)
-            }
-        })
-
-        viewModel.messageStringId.observe(this, Observer {
-            it.data?.run { showMessage(this) }
-        })*/
     }
     private fun isNetworkAvailable(): Boolean {
         val conMgr = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -93,30 +66,14 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
         super.onResume()
         Log.i(this@BaseActivity::class.java.simpleName, "onResume: ")
     }
-
-    /**
-     * @author Anita Chipkar
-     * Called Ads function when leaving the activity
-     */
     override fun onPause() {
         super.onPause()
         Log.i(this@BaseActivity::class.java.simpleName, "onPause: ")
     }
-
-    /**
-     * @author Anita Chipkar
-     * Called Ads function before the activity is destroyed
-     */
     override fun onDestroy() {
         super.onDestroy()
         Log.i(this@BaseActivity::class.java.simpleName, "onDestroy: ")
     }
-    /**
-     * @author Anita Chipkar
-     * @param isCheckNetwork
-     * @param isSetTitle
-     * @param title
-     */
     fun showProgressDialog(
         isCheckNetwork: Boolean = true,
         isSetTitle: Boolean,
@@ -158,10 +115,6 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
             progressDialog?.show()
         }
     }
-
-    /**
-     * @author Anita Chipkar
-     */
     fun hideProgressDialog() {
         if (progressDialog != null && progressDialog!!.isShowing) {
             progressDialog?.dismiss()

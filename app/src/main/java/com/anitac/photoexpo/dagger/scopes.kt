@@ -1,10 +1,9 @@
-package com.app.loc.dagger
+package com.anitac.photoexpo.dagger
 
 import javax.inject.Scope
 
 /**
  * @author Anita Chipkar
- * @since 13/06/2022
  */
 @Scope
 @Retention(AnnotationRetention.SOURCE)

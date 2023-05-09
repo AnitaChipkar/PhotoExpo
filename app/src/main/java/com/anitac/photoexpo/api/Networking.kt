@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit
 
 /**
  * @author Anita Chipkar
- * @since 13/06/2022
  * Networking
  * @constructor Create empty Networking
  */
@@ -43,9 +42,6 @@ object Networking {
                     .addInterceptor(RequestInterceptor(object :
                         RequestInterceptor.OnRequestInterceptor { //to provide common header & params
                         override fun provideHeaderMap(): HashMap<String, String> {
-                           // val map = HashMap<String, String>()
-                           /* if (sharedPreference.authToken?.isNotEmpty() == true)
-                                map["AUTHTOKEN"] = sharedPreference.authToken.toString()*/
                             return HashMap()
                         }
 

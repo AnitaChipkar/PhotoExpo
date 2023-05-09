@@ -10,7 +10,6 @@ import java.util.regex.Pattern
 
 /**
  * @author Anita Chipkar
- * @since 13/06/2022
  * @property onRequestInterceptor
  */
 class RequestInterceptor(private val onRequestInterceptor: OnRequestInterceptor) : Interceptor {
@@ -19,12 +18,6 @@ class RequestInterceptor(private val onRequestInterceptor: OnRequestInterceptor)
         fun provideBodyMap(): HashMap<String, String>
         fun provideHeaderMap(): HashMap<String, String>
     }
-
-    /**
-     * @author Anita Chipkar
-     * @param chain
-     * @return
-     */
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()
         val method = request.method

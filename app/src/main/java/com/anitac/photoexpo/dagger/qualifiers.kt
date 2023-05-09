@@ -4,7 +4,6 @@ import javax.inject.Qualifier
 
 /**
  * @author Anita Chipkar
- * @since 13/06/2022
  */
 @Qualifier
 @Retention(AnnotationRetention.BINARY)

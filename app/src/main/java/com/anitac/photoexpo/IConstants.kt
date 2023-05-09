@@ -1,5 +1,8 @@
 package com.anitac.photoexpo
 
+/**
+ * @author Anita Chipkar
+ */
 interface IConstants {
     @Suppress("DEPRECATION")
     companion object {

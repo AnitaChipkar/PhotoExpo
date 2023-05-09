@@ -6,14 +6,11 @@ import androidx.lifecycle.MutableLiveData
 import com.anitac.photoexpo.ImageList
 import com.anitac.photoexpo.api.NetworkHelper
 import com.anitac.photoexpo.repository.HomeRepository
-import com.app.loc.commonUtils.rx.SchedulerProvider
+import com.anitac.photoexpo.rx.SchedulerProvider
 import io.reactivex.disposables.CompositeDisposable
-import retrofit2.Response
 
 /**
  * @author Anita Chipkar
- * Splash view model
- * @property splashRepository
  * @constructor
  * @param schedulerProvider
  * @param compositeDisposable
@@ -38,11 +35,7 @@ class HomeViewModel(
             else -> checkForInternetConnectionLiveData.postValue(false)
         }
     }
-    /**
-     * @author Anita Chipkar
-     * @param userId
-     * @param pageIndex
-     */
+
     fun callGetImageList() {
         compositeDisposable.addAll(
             homeRepository.callImageList()

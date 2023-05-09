@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.google.gson.annotations.Expose
 import kotlinx.android.parcel.Parcelize
 
+/**
+ * @author Anita Chipkar
+ */
 @Parcelize
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class ImageList(

@@ -8,8 +8,8 @@ import com.anitac.photoexpo.AppApplication
 import com.anitac.photoexpo.api.NetworkHelper
 import com.anitac.photoexpo.api.NetworkService
 import com.anitac.photoexpo.api.Networking
-import com.app.loc.commonUtils.rx.RxSchedulerProvider
-import com.app.loc.commonUtils.rx.SchedulerProvider
+import com.anitac.photoexpo.rx.RxSchedulerProvider
+import com.anitac.photoexpo.rx.SchedulerProvider
 import com.anitac.photoexpo.dagger.ApplicationContext
 import dagger.Module
 import dagger.Provides
@@ -18,7 +18,6 @@ import javax.inject.Singleton
 
 /**
  * @author Anita Chipkar
- * @since 13/06/2022
  * @property application
  */
 @Module

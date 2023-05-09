@@ -11,6 +11,9 @@ import com.anitac.photoexpo.view.BaseActivity
 import com.anitac.photoexpo.viewmodel.BaseViewModel
 import java.lang.ref.WeakReference
 
+/**
+ * @author Anita Chipkar
+ */
 class AppApplication: MultiDexApplication(), Application.ActivityLifecycleCallbacks{
     lateinit var applicationComponent: ApplicationComponent
     var weakActivity: WeakReference<BaseActivity<BaseViewModel>>? = null

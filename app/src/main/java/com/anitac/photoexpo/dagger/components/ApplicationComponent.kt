@@ -9,14 +9,13 @@ import com.anitac.photoexpo.api.NetworkHelper
 import com.anitac.photoexpo.api.NetworkService
 import com.anitac.photoexpo.dagger.ApplicationContext
 import com.anitac.photoexpo.dagger.modules.ApplicationModule
-import com.app.loc.commonUtils.rx.SchedulerProvider
+import com.anitac.photoexpo.rx.SchedulerProvider
 import dagger.Component
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Singleton
 
 /**
  * @author Anita Chipkar
- * @since 13/06/2022
  */
 @Singleton
 @Component(modules = [ApplicationModule::class])

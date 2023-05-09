@@ -11,7 +11,7 @@ import com.anitac.photoexpo.viewmodel.DetailsViewModel
 import com.anitac.photoexpo.viewmodel.HomeViewModel
 import com.anitac.photoexpo.viewmodel.SplashViewModel
 import com.anitac.photoexpo.viewmodel.ViewModelProviderFactory
-import com.app.loc.commonUtils.rx.SchedulerProvider
+import com.anitac.photoexpo.rx.SchedulerProvider
 import dagger.Module
 import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable
@@ -19,7 +19,6 @@ import io.reactivex.disposables.CompositeDisposable
 
 /**
  * @author Anita Chipkar
- * @since 13/06/2022
  * @property activity
  */
 @Module

@@ -32,13 +32,6 @@ class ImageListAdapter(
     //How much total items we want to load on this adapter.
     var totalCount: String = "0"
 
-
-    /**
-     * @author Anita Chipkar
-     * @param parent
-     * @param viewType
-     * @return
-     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = CvHomeImageListBinding.inflate(inflater)
@@ -50,11 +43,6 @@ class ImageListAdapter(
         return ViewHolder(binding)
     }
 
-    /**
-     * @author Anita Chipkar
-     * @param holder
-     * @param position
-     */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) =
         holder.bind(mResultData[position])
 

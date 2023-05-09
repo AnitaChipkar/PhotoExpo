@@ -3,7 +3,7 @@ package com.anitac.photoexpo.viewmodel
 
 import com.anitac.photoexpo.api.NetworkHelper
 import com.anitac.photoexpo.repository.SplashRepository
-import com.app.loc.commonUtils.rx.SchedulerProvider
+import com.anitac.photoexpo.rx.SchedulerProvider
 import io.reactivex.disposables.CompositeDisposable
 
 /**
@@ -24,38 +24,6 @@ class SplashViewModel(
 
 
     override fun onCreate() {
-        //checkForInternetConnection()
-       // deviceToken = AppineersApplication.sharedPreference.deviceToken ?: ""
+
     }
-  /*  val configParamsPhoneLiveData = MutableLiveData<TAListResponse<VersionConfigResponse>>()
-    val checkForInternetConnectionLiveData = MutableLiveData<Boolean>()
-    var deviceToken : String = ""
-
-
-
-
-
-    private fun checkForInternetConnection() {
-        when {
-            checkInternetConnection() -> checkForInternetConnectionLiveData.postValue(true)
-            else -> checkForInternetConnectionLiveData.postValue(false)
-        }
-    }*/
-
-   /* fun callGetConfigParameters() {
-        compositeDisposable.addAll(
-            splashRepository.callConfigParameters()
-                .subscribeOn(schedulerProvider.io())
-                .subscribe(
-                    { response ->
-                        configParamsPhoneLiveData.postValue(response)
-                    },
-                    { error ->
-                        statusCodeLiveData.postValue(handleServerError(error))
-                    }
-                )
-        )
-    }
-*/
-
 }

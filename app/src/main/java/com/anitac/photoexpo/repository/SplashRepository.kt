@@ -1,15 +1,13 @@
 package com.anitac.photoexpo.repository
 
+import com.anitac.photoexpo.api.NetworkService
 import javax.inject.Inject
 
 /**
  * @author Anita Chipkar
- * @since 13/06/2022
  * @property networkService
  */
 class SplashRepository @Inject constructor(
-   // val networkService: NetworkService
+    val networkService: NetworkService
 ) {
-   // fun callConfigParameters(): Single<TAListResponse<VersionConfigResponse>> =
-     //   networkService.callConfigParameters()
 }

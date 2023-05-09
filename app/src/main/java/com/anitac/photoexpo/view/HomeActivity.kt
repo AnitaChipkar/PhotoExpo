@@ -10,6 +10,9 @@ import com.anitac.photoexpo.dagger.components.ActivityComponent
 import com.anitac.photoexpo.databinding.ActivityHomeBinding
 import com.anitac.photoexpo.viewmodel.HomeViewModel
 
+/**
+ * @author Anita Chipkar
+ */
 class HomeActivity : BaseActivity<HomeViewModel>(),RecyclerViewActionListener {
     var dataBinding: ActivityHomeBinding? = null
     private var mAdapter: ImageListAdapter? = null

@@ -10,6 +10,9 @@ import com.anitac.photoexpo.dagger.components.ActivityComponent
 import com.anitac.photoexpo.databinding.ActivitySplashBinding
 import com.anitac.photoexpo.viewmodel.SplashViewModel
 
+/**
+ * @author Anita Chipkar
+ */
 class SplashActivity : BaseActivity<SplashViewModel>() {
 
     var dataBinding: ActivitySplashBinding? = null
@@ -17,7 +20,6 @@ class SplashActivity : BaseActivity<SplashViewModel>() {
     override fun setDataBindingLayout() {
         dataBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_splash)
-      //  dataBinding?.viewModel = viewModel
         dataBinding?.lifecycleOwner = this
     }
 

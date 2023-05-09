@@ -11,6 +11,9 @@ import com.anitac.photoexpo.databinding.ActivityDetailsBinding
 import com.anitac.photoexpo.viewmodel.DetailsViewModel
 import com.squareup.picasso.Picasso
 
+/**
+ * @author Anita Chipkar
+ */
 class DetailsActivity : BaseActivity<DetailsViewModel>() {
 
     companion object {
